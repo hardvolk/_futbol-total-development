@@ -1,0 +1,111 @@
+
+ /* COLORS */
+@import 'colors.css';
+
+/* BUTTONS */
+@import 'buttons.css';
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#FFF;
+    background-attachment:fixed;
+    font-family: 'Roboto', sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    position: relative;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+a{
+    text-decoration: none;
+}
+
+/* TEXT */
+h1,h2,h3,p{
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 5px;
+}
+p,a{
+    font-size: 12px;
+}
+h1{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+
+/***********************************  APP STYLES  **************************/
+/* MENU */
+#menu{
+    height: 40px;
+    width: 96%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* old safari/chrome versions*/
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
+    -webkit-flex-direction: row;
+     -webkit-align-items: center;
+}
+    #menu a{
+        color: #303F9F;
+        text-align: center;
+        display: block;
+    }
+    #menu a.current{
+        color: #FFF;
+    }
+    #menu a i{
+        display: block;
+        margin: auto;
+        font-size: 24px;
+    }
+#app-container{
+    position: relative;
+    margin-top: 56px; /* Este margen es por el menu*/
+    width: 90%;
+    padding-top: 10px;
+    padding-right: 5%;
+    padding-left: 5%;
+}
